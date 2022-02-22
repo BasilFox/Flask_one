@@ -1,4 +1,5 @@
 from flask import Flask, url_for
+from flask import request
 
 app = Flask(__name__)
 
@@ -85,6 +86,401 @@ def promotion_image():
                     </div>
                   </body>
                 </html>'''
+
+
+@app.route('/vibor', methods=['POST', 'GET'])
+def vibor():
+    if request.method == 'GET':
+        return f'''<!doctype html>
+                            <html lang="en">
+                              <head>
+                                <meta charset="utf-8">
+                                <meta name="viewport" content="width=device-width, height = 1000px, initial-scale=1, shrink-to-fit=no">
+                                <link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                                integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                                crossorigin="anonymous">
+                                <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style1.css')}" />
+                                <title>Пример формы</title>
+                              </head>
+                              <body>
+                              <div style="text-align: center;">
+                                <h1>Анкета претендента</h1>
+                                <h2>на участие в миссии</h2>
+                                </div>
+                                <div>
+                                    <form class="login_form" method="post">
+                                        <input type="text " class="form-control" id="surname" placeholder="Введите фамилию." name="surname">
+                                        <input type="text" class="form-control" id="name" placeholder="Введите имя." name="name">
+                                        <div class="form-group">
+                                            <label for="classSelect"> </label>
+                                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите адрес почты" name="email">
+                                            <label for="educationSel"> Какое у Вас образование?</label>
+                                            <select class="form-control" id="educationSel" name="edu">
+                                              <option>Начальное</option>
+                                              <option>Основное общее</option>
+                                              <option>Среднее общее</option>
+                                              <option>Среднее спициальное</option>
+                                              <option>Высшие</option>
+                                            </select>
+                                         </div>
+                                        <label for="classSelect">Какие у Вас профессии?</label>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="acceptRules" name="eng1">
+                                            <label class="form-check-label" for="acceptRules">Инженер-исследователь</label>
+                                            
+                                        </div>
+                                        <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="eng2">
+                                            <label class="form-check-label" for="acceptRules">Инженер-строитель</label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="pilot">
+                                            <label class="form-check-label" for="acceptRules">Пилот</label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="meteo">
+                                            <label class="form-check-label" for="acceptRules">Метеоролог</label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="eng3">
+                                            <label class="form-check-label" for="acceptRules">Инженер по жизнеобеспечению</label>
+                                        </div>
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="eng4">
+                                            <label class="form-check-label" for="acceptRules">Инженер по радиационной защите</label>
+                                        </div>
+                                        <input type="checkbox" class="form-check-input" id="acceptRules" name="exo">
+                                            <label class="form-check-label" for="acceptRules">Экзобиолог"</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="about">Немного о себе</label>
+                                            <textarea class="form-control" id="about" rows="3" name="about"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="photo">Приложите фотографию</label>
+                                            <input type="file" class="form-control-file" id="photo" name="file">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="form-check">Укажите пол</label>
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="sex" id="male" value="male" checked>
+                                              <label class="form-check-label" for="male">
+                                                Мужской
+                                              </label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="sex" id="female" value="female">
+                                              <label class="form-check-label" for="female">
+                                                Женский
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
+                                            <label class="form-check-label" for="acceptRules">Готов быть добровольцем</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Записаться</button>
+                                    </form>
+                                </div>
+                              </body>
+                            </html>'''
+    elif request.method == 'POST':
+        print(request.form['surname'])
+        print(request.form['name'])
+        print(request.form['email'])
+        print(request.form['edu'])
+        print(request.form['about'])
+        print(request.form['accept'])
+        print(request.form['sex'])
+        return "Форма отправлена"
+
+
+@app.route('/choice/mars')
+def choice_mars():
+    sp = ['На ней много необходимых ресурсов;',
+
+          'На ней есть вода и атмосфера;',
+
+          'На ней есть небольшое магнитное поле;',
+
+          'Наконец, она просто красива!',
+
+          'Присоединяйся!']
+    return f'''<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                    <title>Привет, Яндекс!</title>
+                  </head>
+                  <body>
+                    <h1>Моё предложение: Марс</h1>
+                    <h2>Эта плпнета близка к Земле;</h2>
+                    <div class="alert alert-primary" role="alert">
+                     {sp[0]}
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                     {sp[1]}
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                     {sp[2]}
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                     {sp[3]}
+                    </div>
+                  </body>
+                </html>'''
+
+
+@app.route('/choice/mercury')
+def choice_mercury():
+    sp = ['Там очень тепло;',
+
+          'Удобно исследовать солнце;',
+
+          'Похож на Луну;',
+
+          'Наконец, он просто красив!',
+          ]
+    return f'''<!doctype html>
+                    <html lang="en">
+                      <head>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                        <link rel="stylesheet" 
+                        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                        crossorigin="anonymous">
+                        <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                        <title>Привет, Яндекс!</title>
+                      </head>
+                      <body>
+                        <h1>Моё предложение: Меркурий</h1>
+                        <h2>Достаточно невелика для быстрого освоения;</h2>
+                        <div class="alert alert-primary" role="alert">
+                         {sp[0]}
+                        </div>
+                        <div class="alert alert-secondary" role="alert">
+                         {sp[1]}
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                         {sp[2]}
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                         {sp[3]}
+                        </div>
+                      </body>
+                    </html>'''
+
+
+@app.route('/choice/venus')
+def choice_venus():
+    sp = ['Там есть твердая поверхность;',
+
+          'Сущесвует озоновый слой;',
+
+          'Постоянные освежающие ветра;',
+
+          'Наконец, она просто красива!',
+          ]
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet" 
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                            crossorigin="anonymous">
+                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Привет, Яндекс!</title>
+                          </head>
+                          <body>
+                            <h1>Моё предложение: Венера</h1>
+                            <h2>По ряду характеристик — например, по массе и размерам — Венера считается «сестрой» Земли;</h2>
+                            <div class="alert alert-primary" role="alert">
+                             {sp[0]}
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                             {sp[1]}
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                             {sp[2]}
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                             {sp[3]}
+                            </div>
+                          </body>
+                        </html>'''
+
+
+@app.route('/choice/jupiter')
+def choice_jupiter():
+    sp = ['Много полезных газов;',
+
+          'Прекрасные полярные сияния',
+
+          'Через пару миллиардов лет появится вода;',
+
+          'Наконец, он просто красив!',
+          ]
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet" 
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                            crossorigin="anonymous">
+                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Привет, Яндекс!</title>
+                          </head>
+                          <body>
+                            <h1>Моё предложение: Юпитер</h1>
+                            <h2>Юпи́тер — крупнейшая планета Солнечной системы, пятая по удалённости от Солнца;</h2>
+                            <div class="alert alert-primary" role="alert">
+                             {sp[0]}
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                             {sp[1]}
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                             {sp[2]}
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                             {sp[3]}
+                            </div>
+                          </body>
+                        </html>'''
+
+
+@app.route('/choice/saturn')
+def choice_saturn():
+    sp = ['Обратим внимание на его спутник Титан;',
+
+          'Титан является единственным, кроме Земли, телом в Солнечной системе, для которого доказано стабильное существование жидкости на поверхности;',
+
+          'А так же единственным спутником планеты, обладающим плотной атмосферой;',
+
+          'Наконец, он просто красив!',
+          ]
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet" 
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                            crossorigin="anonymous">
+                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Привет, Яндекс!</title>
+                          </head>
+                          <body>
+                            <h1>Моё предложение: Сатурн</h1>
+                            <h2>Он нас мало интересует;</h2>
+                            <div class="alert alert-primary" role="alert">
+                             {sp[0]}
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                             {sp[1]}
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                             {sp[2]}
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                             {sp[3]}
+                            </div>
+                          </body>
+                        </html>'''
+
+
+@app.route('/choice/uranus')
+def choice_uranus():
+    sp = ['Много водички в разных состояниях;',
+
+          'Много спутников на которых тоже можно потусить;',
+
+          'Самый свежий в Солнечной системе;',
+
+          'Наконец, он просто красив!',
+          ]
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet" 
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                            crossorigin="anonymous">
+                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Привет, Яндекс!</title>
+                          </head>
+                          <body>
+                            <h1>Моё предложение: Уран</h1>
+                            <h2>Там довольно прохладно;</h2>
+                            <div class="alert alert-primary" role="alert">
+                             {sp[0]}
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                             {sp[1]}
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                             {sp[2]}
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                             {sp[3]}
+                            </div>
+                          </body>
+                        </html>'''
+
+
+@app.route('/choice/neptune')
+def choice_neptune():
+    sp = ['То есть можно попробовать надышаться и говорить смешными голосами;',
+
+          'Быстрые ветры можно поставить кучу ветряков и качать электричество;',
+
+          'Самый посчитанный в Солнечной системе;',
+
+          'Наконец, он просто красив!',
+          ]
+    return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet" 
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                            crossorigin="anonymous">
+                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Привет, Яндекс!</title>
+                          </head>
+                          <body>
+                            <h1>Моё предложение: Нептун</h1>
+                            <h2>Атмосфера из водорода и гелия;</h2>
+                            <div class="alert alert-primary" role="alert">
+                             {sp[0]}
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                             {sp[1]}
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                             {sp[2]}
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                             {sp[3]}
+                            </div>
+                          </body>
+                        </html>'''
 
 
 if __name__ == '__main__':
