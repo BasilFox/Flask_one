@@ -146,21 +146,15 @@ def vibor():
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="eng3">
                                             <label class="form-check-label" for="acceptRules">Инженер по жизнеобеспечению</label>
                                         </div>
+                                        <div class="form-group">
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="eng4">
                                             <label class="form-check-label" for="acceptRules">Инженер по радиационной защите</label>
                                         </div>
+                                        <div class="form-group">
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="exo">
-                                            <label class="form-check-label" for="acceptRules">Экзобиолог"</label>
+                                            <label class="form-check-label" for="acceptRules">Экзобиолог</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="about">Немного о себе</label>
-                                            <textarea class="form-control" id="about" rows="3" name="about"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="photo">Приложите фотографию</label>
-                                            <input type="file" class="form-control-file" id="photo" name="file">
-                                        </div>
-                                        <div class="form-group">
+                                         <div class="form-group">
                                             <label for="form-check">Укажите пол</label>
                                             <div class="form-check">
                                               <input class="form-check-input" type="radio" name="sex" id="male" value="male" checked>
@@ -175,11 +169,24 @@ def vibor():
                                               </label>
                                             </div>
                                         </div>
+                                        
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label for="about">Почему Вы хотите принять участие в миссии?</label>
+                                            <textarea class="form-control" id="about" rows="3" name="about"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="photo">Приложите фотографию</label>
+                                            <input type="file" class="form-control-file" id="photo" name="file">
+                                        </div>
+                                       
                                         <div class="form-group form-check">
                                             <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
-                                            <label class="form-check-label" for="acceptRules">Готов быть добровольцем</label>
+                                            <label class="form-check-label" for="acceptRules">Готовы остаться на Марсе?</label>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Записаться</button>
+                                        <button type="submit" class="btn btn-primary">Отправить</button>
                                     </form>
                                 </div>
                               </body>
@@ -189,9 +196,17 @@ def vibor():
         print(request.form['name'])
         print(request.form['email'])
         print(request.form['edu'])
-        print(request.form['about'])
-        print(request.form['accept'])
+        print(request.form['eng1'])
+        print(request.form['eng2'])
+        print(request.form['pilot'])
+        print(request.form['meteo'])
+        print(request.form['eng3'])
+        print(request.form['eng4'])
+        print(request.form['exo'])
         print(request.form['sex'])
+        print(request.form['about'])
+        print(request.form['file'])
+        print(request.form['accept'])
         return "Форма отправлена"
 
 

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if инженер in prof or строитель in prof %}
+<h2>Здорово</h2>
+<!--<h2>Инженерные тренажеры</h2>
+<img src="{url_for('static', filename='img/eng.jpg')}"
+     alt="здесь должна была быть картинка, но не нашлась">
+{% elif ученый in prof %}
+<h2>Научные тренажеры</h2>
+<img src="{url_for('static', filename='img/5556.jpg')}"
+     alt="здесь должна была быть картинка, но не нашлась">
+{% else %}
+<h2>Прочие тренажеры</h2>
+<img src="{url_for('static', filename='img/8855.jpg')}"
+     alt="здесь должна была быть картинка, но не нашлась"-->
+
+{% endif %}
+{% endblock %}
