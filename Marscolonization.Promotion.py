@@ -206,7 +206,6 @@ def vibor():
         print(request.form['sex'])
         print(request.form['about'])
         print(request.form['file'])
-        print(request.form['accept'])
         return "Форма отправлена"
 
 
