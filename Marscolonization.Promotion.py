@@ -209,59 +209,19 @@ def vibor():
         return "Форма отправлена"
 
 
-@app.route('/choice/mars')
-def choice_mars():
-    sp = ['На ней много необходимых ресурсов;',
+@app.route('/choice/<planet>')
+def choice_mars(planet):
+    if planet == 'mars':
+        sp = ['На ней много необходимых ресурсов;',
 
-          'На ней есть вода и атмосфера;',
+              'На ней есть вода и атмосфера;',
 
-          'На ней есть небольшое магнитное поле;',
+              'На ней есть небольшое магнитное поле;',
 
-          'Наконец, она просто красива!',
+              'Наконец, она просто красива!',
 
-          'Присоединяйся!']
-    return f'''<!doctype html>
-                <html lang="en">
-                  <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                    <link rel="stylesheet" 
-                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                    crossorigin="anonymous">
-                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                    <title>Привет, Яндекс!</title>
-                  </head>
-                  <body>
-                    <h1>Моё предложение: Марс</h1>
-                    <h2>Эта плпнета близка к Земле;</h2>
-                    <div class="alert alert-primary" role="alert">
-                     {sp[0]}
-                    </div>
-                    <div class="alert alert-secondary" role="alert">
-                     {sp[1]}
-                    </div>
-                    <div class="alert alert-success" role="alert">
-                     {sp[2]}
-                    </div>
-                    <div class="alert alert-danger" role="alert">
-                     {sp[3]}
-                    </div>
-                  </body>
-                </html>'''
-
-
-@app.route('/choice/mercury')
-def choice_mercury():
-    sp = ['Там очень тепло;',
-
-          'Удобно исследовать солнце;',
-
-          'Похож на Луну;',
-
-          'Наконец, он просто красив!',
-          ]
-    return f'''<!doctype html>
+              'Присоединяйся!']
+        return f'''<!doctype html>
                     <html lang="en">
                       <head>
                         <meta charset="utf-8">
@@ -274,8 +234,8 @@ def choice_mercury():
                         <title>Привет, Яндекс!</title>
                       </head>
                       <body>
-                        <h1>Моё предложение: Меркурий</h1>
-                        <h2>Достаточно невелика для быстрого освоения;</h2>
+                        <h1>Моё предложение: Марс</h1>
+                        <h2>Эта плпнета близка к Земле;</h2>
                         <div class="alert alert-primary" role="alert">
                          {sp[0]}
                         </div>
@@ -290,211 +250,235 @@ def choice_mercury():
                         </div>
                       </body>
                     </html>'''
+    elif planet == 'mercury':
+        sp = ['Там очень тепло;',
 
+              'Удобно исследовать солнце;',
 
-@app.route('/choice/venus')
-def choice_venus():
-    sp = ['Там есть твердая поверхность;',
+              'Похож на Луну;',
 
-          'Сущесвует озоновый слой;',
+              'Наконец, он просто красив!',
+              ]
+        return f'''<!doctype html>
+                            <html lang="en">
+                              <head>
+                                <meta charset="utf-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                <link rel="stylesheet" 
+                                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                crossorigin="anonymous">
+                                <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                <title>Привет, Яндекс!</title>
+                              </head>
+                              <body>
+                                <h1>Моё предложение: Меркурий</h1>
+                                <h2>Достаточно невелика для быстрого освоения;</h2>
+                                <div class="alert alert-primary" role="alert">
+                                 {sp[0]}
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                 {sp[1]}
+                                </div>
+                                <div class="alert alert-success" role="alert">
+                                 {sp[2]}
+                                </div>
+                                <div class="alert alert-danger" role="alert">
+                                 {sp[3]}
+                                </div>
+                              </body>
+                            </html>'''
+    elif planet == 'venus':
+        sp = ['Там есть твердая поверхность;',
 
-          'Постоянные освежающие ветра;',
+              'Сущесвует озоновый слой;',
 
-          'Наконец, она просто красива!',
-          ]
-    return f'''<!doctype html>
-                        <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            <link rel="stylesheet" 
-                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                            crossorigin="anonymous">
-                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Привет, Яндекс!</title>
-                          </head>
-                          <body>
-                            <h1>Моё предложение: Венера</h1>
-                            <h2>По ряду характеристик — например, по массе и размерам — Венера считается «сестрой» Земли;</h2>
-                            <div class="alert alert-primary" role="alert">
-                             {sp[0]}
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                             {sp[1]}
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                             {sp[2]}
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                             {sp[3]}
-                            </div>
-                          </body>
-                        </html>'''
+              'Постоянные освежающие ветра;',
 
+              'Наконец, она просто красива!',
+              ]
+        return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet" 
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                    crossorigin="anonymous">
+                                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                    <title>Привет, Яндекс!</title>
+                                  </head>
+                                  <body>
+                                    <h1>Моё предложение: Венера</h1>
+                                    <h2>По ряду характеристик — например, по массе и размерам — Венера считается «сестрой» Земли;</h2>
+                                    <div class="alert alert-primary" role="alert">
+                                     {sp[0]}
+                                    </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                     {sp[1]}
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                     {sp[2]}
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                     {sp[3]}
+                                    </div>
+                                  </body>
+                                </html>'''
+    elif planet == 'jupiter':
+        sp = ['Много полезных газов;',
 
-@app.route('/choice/jupiter')
-def choice_jupiter():
-    sp = ['Много полезных газов;',
+              'Прекрасные полярные сияния',
 
-          'Прекрасные полярные сияния',
+              'Через пару миллиардов лет появится вода;',
 
-          'Через пару миллиардов лет появится вода;',
+              'Наконец, он просто красив!',
+              ]
+        return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet" 
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                    crossorigin="anonymous">
+                                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                    <title>Привет, Яндекс!</title>
+                                  </head>
+                                  <body>
+                                    <h1>Моё предложение: Юпитер</h1>
+                                    <h2>Юпи́тер — крупнейшая планета Солнечной системы, пятая по удалённости от Солнца;</h2>
+                                    <div class="alert alert-primary" role="alert">
+                                     {sp[0]}
+                                    </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                     {sp[1]}
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                     {sp[2]}
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                     {sp[3]}
+                                    </div>
+                                  </body>
+                                </html>'''
+    elif planet == 'saturn':
+        sp = ['Обратим внимание на его спутник Титан;',
 
-          'Наконец, он просто красив!',
-          ]
-    return f'''<!doctype html>
-                        <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            <link rel="stylesheet" 
-                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                            crossorigin="anonymous">
-                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Привет, Яндекс!</title>
-                          </head>
-                          <body>
-                            <h1>Моё предложение: Юпитер</h1>
-                            <h2>Юпи́тер — крупнейшая планета Солнечной системы, пятая по удалённости от Солнца;</h2>
-                            <div class="alert alert-primary" role="alert">
-                             {sp[0]}
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                             {sp[1]}
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                             {sp[2]}
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                             {sp[3]}
-                            </div>
-                          </body>
-                        </html>'''
+              'Титан является единственным, кроме Земли, телом в Солнечной системе, для которого доказано стабильное существование жидкости на поверхности;',
 
+              'А так же единственным спутником планеты, обладающим плотной атмосферой;',
 
-@app.route('/choice/saturn')
-def choice_saturn():
-    sp = ['Обратим внимание на его спутник Титан;',
+              'Наконец, он просто красив!',
+              ]
+        return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet" 
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                    crossorigin="anonymous">
+                                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                    <title>Привет, Яндекс!</title>
+                                  </head>
+                                  <body>
+                                    <h1>Моё предложение: Сатурн</h1>
+                                    <h2>Он нас мало интересует;</h2>
+                                    <div class="alert alert-primary" role="alert">
+                                     {sp[0]}
+                                    </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                     {sp[1]}
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                     {sp[2]}
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                     {sp[3]}
+                                    </div>
+                                  </body>
+                                </html>'''
+    elif planet == 'uranus':
+        sp = ['Много водички в разных состояниях;',
 
-          'Титан является единственным, кроме Земли, телом в Солнечной системе, для которого доказано стабильное существование жидкости на поверхности;',
+              'Много спутников на которых тоже можно потусить;',
 
-          'А так же единственным спутником планеты, обладающим плотной атмосферой;',
+              'Самый свежий в Солнечной системе;',
 
-          'Наконец, он просто красив!',
-          ]
-    return f'''<!doctype html>
-                        <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            <link rel="stylesheet" 
-                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                            crossorigin="anonymous">
-                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Привет, Яндекс!</title>
-                          </head>
-                          <body>
-                            <h1>Моё предложение: Сатурн</h1>
-                            <h2>Он нас мало интересует;</h2>
-                            <div class="alert alert-primary" role="alert">
-                             {sp[0]}
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                             {sp[1]}
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                             {sp[2]}
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                             {sp[3]}
-                            </div>
-                          </body>
-                        </html>'''
+              'Наконец, он просто красив!',
+              ]
+        return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet" 
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                    crossorigin="anonymous">
+                                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                    <title>Привет, Яндекс!</title>
+                                  </head>
+                                  <body>
+                                    <h1>Моё предложение: Уран</h1>
+                                    <h2>Там довольно прохладно;</h2>
+                                    <div class="alert alert-primary" role="alert">
+                                     {sp[0]}
+                                    </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                     {sp[1]}
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                     {sp[2]}
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                     {sp[3]}
+                                    </div>
+                                  </body>
+                                </html>'''
+    elif planet == 'neptune':
+        def choice_neptune():
+            sp = ['То есть можно попробовать надышаться и говорить смешными голосами;',
 
+                  'Быстрые ветры можно поставить кучу ветряков и качать электричество;',
 
-@app.route('/choice/uranus')
-def choice_uranus():
-    sp = ['Много водички в разных состояниях;',
+                  'Самый посчитанный в Солнечной системе;',
 
-          'Много спутников на которых тоже можно потусить;',
-
-          'Самый свежий в Солнечной системе;',
-
-          'Наконец, он просто красив!',
-          ]
-    return f'''<!doctype html>
-                        <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            <link rel="stylesheet" 
-                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                            crossorigin="anonymous">
-                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Привет, Яндекс!</title>
-                          </head>
-                          <body>
-                            <h1>Моё предложение: Уран</h1>
-                            <h2>Там довольно прохладно;</h2>
-                            <div class="alert alert-primary" role="alert">
-                             {sp[0]}
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                             {sp[1]}
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                             {sp[2]}
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                             {sp[3]}
-                            </div>
-                          </body>
-                        </html>'''
-
-
-@app.route('/choice/neptune')
-def choice_neptune():
-    sp = ['То есть можно попробовать надышаться и говорить смешными голосами;',
-
-          'Быстрые ветры можно поставить кучу ветряков и качать электричество;',
-
-          'Самый посчитанный в Солнечной системе;',
-
-          'Наконец, он просто красив!',
-          ]
-    return f'''<!doctype html>
-                        <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            <link rel="stylesheet" 
-                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-                            crossorigin="anonymous">
-                            <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Привет, Яндекс!</title>
-                          </head>
-                          <body>
-                            <h1>Моё предложение: Нептун</h1>
-                            <h2>Атмосфера из водорода и гелия;</h2>
-                            <div class="alert alert-primary" role="alert">
-                             {sp[0]}
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                             {sp[1]}
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                             {sp[2]}
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                             {sp[3]}
-                            </div>
-                          </body>
-                        </html>'''
+                  'Наконец, он просто красив!',
+                  ]
+            return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet" 
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                                    crossorigin="anonymous">
+                                    <link link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                    <title>Привет, Яндекс!</title>
+                                  </head>
+                                  <body>
+                                    <h1>Моё предложение: Нептун</h1>
+                                    <h2>Атмосфера из водорода и гелия;</h2>
+                                    <div class="alert alert-primary" role="alert">
+                                     {sp[0]}
+                                    </div>
+                                    <div class="alert alert-secondary" role="alert">
+                                     {sp[1]}
+                                    </div>
+                                    <div class="alert alert-success" role="alert">
+                                     {sp[2]}
+                                    </div>
+                                    <div class="alert alert-danger" role="alert">
+                                     {sp[3]}
+                                    </div>
+                                  </body>
+                                </html>'''
 
 
 if __name__ == '__main__':

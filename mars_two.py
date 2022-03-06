@@ -23,5 +23,17 @@ def spisok(sp):
     return render_template('professions.html', list=sp, spec=spec)
 
 
+@app.route('/auto_answer')
+def otvet():
+    anketa = {'surname': 'Иванов',
+              'name': 'Иван',
+              'education': 'Высшее',
+              'profession': 'Геолог',
+              'sex': 'Мужской',
+              'motivation': 'Захотелось',
+              'ready': 'Готов'}
+    return render_template('autoanswer.html', **anketa)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
